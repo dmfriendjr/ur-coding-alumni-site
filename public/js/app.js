@@ -37788,9 +37788,11 @@ var Main = function (_Component) {
                             { className: 'container-fluid' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_6__Home__["a" /* default */] }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { exact: true, path: '/login', render: function render() {
-                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__auth__["a" /* Login */], { onLogin: _this3.onLogin });
+                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__auth__["a" /* Login */], { onLogin: _this3.onLogin, loggedIn: _this3.state.isAuthed });
                                 } }),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { exact: true, path: '/register', component: __WEBPACK_IMPORTED_MODULE_5__auth__["b" /* Register */], onLogin: this.onLogin, loggedIn: this.state.isAuthed })
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { exact: true, path: '/register', render: function render() {
+                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__auth__["b" /* Register */], { onLogin: _this3.onLogin, loggedIn: _this3.state.isAuthed });
+                                } })
                         )
                     )
                 )
@@ -60897,8 +60899,9 @@ var Login = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -60908,6 +60911,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -60940,15 +60944,19 @@ var Register = function (_Component) {
     }, {
         key: 'handleSubmit',
         value: function handleSubmit(event) {
+            var _this2 = this;
+
             event.preventDefault();
 
-            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/register', {
+            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/register', {
                 name: this.state.name,
                 email: this.state.email,
                 password: this.state.password,
                 'password_confirmation': this.state.password2
-            }, { headers: { 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content } }).catch(function (err) {
-                return console.log(err.response.data);
+            }, { headers: { 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content } }).then(function (res) {
+                return _this2.props.onLogin();
+            }).catch(function (err) {
+                return console.log(err);
             });
         }
     }, {
@@ -60956,72 +60964,69 @@ var Register = function (_Component) {
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { className: 'container' },
+                { className: 'row justify-content-center' },
+                this.props.loggedIn ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router__["a" /* Redirect */], { to: '/' }) : '',
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { className: 'row justify-content-center' },
+                    { className: 'col-md-8' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'col-md-8' },
+                        { className: 'card' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { className: 'card' },
+                            { className: 'card-header' },
+                            'Example Component'
+                        ),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'card-body' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'div',
-                                { className: 'card-header' },
-                                'Example Component'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'div',
-                                { className: 'card-body' },
+                                'form',
+                                null,
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'form',
-                                    null,
+                                    'div',
+                                    { className: 'form-group' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'div',
-                                        { className: 'form-group' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'label',
-                                            { htmlFor: 'nameInput' },
-                                            'Name'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { onChange: this.handleInput, value: this.state.name, type: 'text', className: 'form-control', name: 'name', id: 'nameInput', placeholder: 'Enter Name' })
+                                        'label',
+                                        { htmlFor: 'nameInput' },
+                                        'Name'
                                     ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { onChange: this.handleInput, value: this.state.name, type: 'text', className: 'form-control', name: 'name', id: 'nameInput', placeholder: 'Enter Name' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'form-group' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'div',
-                                        { className: 'form-group' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'label',
-                                            { htmlFor: 'emailInput' },
-                                            'Email address'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { onChange: this.handleInput, value: this.state.email, type: 'email', className: 'form-control', name: 'email', id: 'emailInput', placeholder: 'Enter email' })
+                                        'label',
+                                        { htmlFor: 'emailInput' },
+                                        'Email address'
                                     ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { onChange: this.handleInput, value: this.state.email, type: 'email', className: 'form-control', name: 'email', id: 'emailInput', placeholder: 'Enter email' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'form-group' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'div',
-                                        { className: 'form-group' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'label',
-                                            { htmlFor: 'password' },
-                                            'Password'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { onChange: this.handleInput, value: this.state.password, type: 'password', className: 'form-control', name: 'password', id: 'password', placeholder: 'Password' })
+                                        'label',
+                                        { htmlFor: 'password' },
+                                        'Password'
                                     ),
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { onChange: this.handleInput, value: this.state.password, type: 'password', className: 'form-control', name: 'password', id: 'password', placeholder: 'Password' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'div',
+                                    { className: 'form-group' },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'div',
-                                        { className: 'form-group' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                            'label',
-                                            { htmlFor: 'password2' },
-                                            'Password Confirmation'
-                                        ),
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { onChange: this.handleInput, value: this.state.password2, type: 'password2', className: 'form-control', name: 'password2', id: 'password2', placeholder: 'Password Confirmation' })
+                                        'label',
+                                        { htmlFor: 'password2' },
+                                        'Password Confirmation'
                                     ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'button',
-                                        { type: 'submit', onClick: this.handleSubmit, className: 'btn btn-primary' },
-                                        'Submit'
-                                    )
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { onChange: this.handleInput, value: this.state.password2, type: 'password2', className: 'form-control', name: 'password2', id: 'password2', placeholder: 'Password Confirmation' })
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'button',
+                                    { type: 'submit', onClick: this.handleSubmit, className: 'btn btn-primary' },
+                                    'Submit'
                                 )
                             )
                         )

@@ -39,8 +39,8 @@ export default class Main extends Component {
                         <TopNav loggedIn={this.state.isAuthed} />
                         <div className="container-fluid">
                             <Route exact path="/" component={Home} />
-                            <Route exact path="/login" render={()=><Login onLogin={this.onLogin} />}/>
-                            <Route exact path="/register" component={Register} onLogin={this.onLogin} loggedIn={this.state.isAuthed} />
+                            <Route exact path="/login" render={()=><Login onLogin={this.onLogin} loggedIn={this.state.isAuthed}/>} />
+                            <Route exact path="/register" render={()=><Register onLogin={this.onLogin} loggedIn={this.state.isAuthed}/>} />
                         </div>
                     </div>
                 </Router>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 import axios from 'axios'
 
 export default class Register extends Component {
@@ -30,17 +31,17 @@ export default class Register extends Component {
             password: this.state.password,
             'password_confirmation': this.state.password2
         }, { headers: { 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content } })
-            .catch( (err) => console.log(err.response.data));
+            .then( (res) => this.props.onLogin())
+            .catch( (err) => console.log(err));
     }
 
     render() {
         return (
-            <div className="container">
                 <div className="row justify-content-center">
+                    { this.props.loggedIn ? <Redirect to="/" /> : ''}
                     <div className="col-md-8">
                         <div className="card">
                             <div className="card-header">Example Component</div>
-
                             <div className="card-body">
                                 <form>
                                     <div className="form-group">
@@ -65,7 +66,6 @@ export default class Register extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
         );
     }
 }
