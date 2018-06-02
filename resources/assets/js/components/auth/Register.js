@@ -25,15 +25,11 @@ export default class Register extends Component {
         event.preventDefault();
 
         axios.post('/register', {
-            _token: csrf_token,
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
             'password_confirmation': this.state.password2
-        })
-            .then( (res) => {
-                console.log(res.data)
-            })
+        }, { headers: { 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content } })
             .catch( (err) => console.log(err.response.data));
     }
 

@@ -26,16 +26,14 @@ export default class Login extends Component {
         event.preventDefault();
 
         axios.post('/login', {
-            _token: csrf_token,
             email: this.state.email,
             password: this.state.password,
-        })
+        }, { headers: { 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content } })
             .then( (res) => {
                 this.setState({loggedIn: true});
-                console.log(this.props);
                 this.props.onLogin();
             })
-            .catch( (err) => console.log(err));
+            .catch( (err) => console.log(err.response.data));
     }
 
     render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
+import Axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import TopNav from './TopNav';
 import {Login, Register} from './auth';
@@ -19,14 +19,12 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
-        console.log('Component mounting', this.state);
         if (!this.state.isAuthed) {
             axios.get('/user/auth').then( (res) => { this.setState({isAuthed: res.data}) } );
         }
     }
 
     onLogin() {
-        console.log('Login state updated');
         this.setState({isAuthed: true});
     }
 
@@ -35,12 +33,15 @@ export default class Main extends Component {
     render() {
         return (
             <div>
-                <TopNav loggedIn={this.state.isAuthed} />
                 <Router>
-                    <div className="container-fluid">
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/login" render={()=><Login onLogin={this.onLogin} />}/>
-                        <Route exact path="/register" component={Register} onLogin={this.onLogin} loggedIn={this.state.isAuthed} />
+                    <div className="app-container">
+
+                        <TopNav loggedIn={this.state.isAuthed} />
+                        <div className="container-fluid">
+                            <Route exact path="/" component={Home} />
+                            <Route exact path="/login" render={()=><Login onLogin={this.onLogin} />}/>
+                            <Route exact path="/register" component={Register} onLogin={this.onLogin} loggedIn={this.state.isAuthed} />
+                        </div>
                     </div>
                 </Router>
             </div>

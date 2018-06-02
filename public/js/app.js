@@ -37757,9 +37757,8 @@ var Main = function (_Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            console.log('Component mounting', this.state);
             if (!this.state.isAuthed) {
-                __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('/user/auth').then(function (res) {
+                axios.get('/user/auth').then(function (res) {
                     _this2.setState({ isAuthed: res.data });
                 });
             }
@@ -37767,7 +37766,6 @@ var Main = function (_Component) {
     }, {
         key: 'onLogin',
         value: function onLogin() {
-            console.log('Login state updated');
             this.setState({ isAuthed: true });
         }
     }, {
@@ -37778,18 +37776,22 @@ var Main = function (_Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__TopNav__["a" /* default */], { loggedIn: this.state.isAuthed }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_3_react_router_dom__["a" /* BrowserRouter */],
                     null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { className: 'container-fluid' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_6__Home__["a" /* default */] }),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Route */], { exact: true, path: '/login', render: function render() {
-                                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__auth__["a" /* Login */], { onLogin: _this3.onLogin });
-                            } }),
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["b" /* Route */], { exact: true, path: '/register', component: __WEBPACK_IMPORTED_MODULE_5__auth__["b" /* Register */], onLogin: this.onLogin, loggedIn: this.state.isAuthed })
+                        { className: 'app-container' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__TopNav__["a" /* default */], { loggedIn: this.state.isAuthed }),
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            { className: 'container-fluid' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_6__Home__["a" /* default */] }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { exact: true, path: '/login', render: function render() {
+                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__auth__["a" /* Login */], { onLogin: _this3.onLogin });
+                                } }),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { exact: true, path: '/register', component: __WEBPACK_IMPORTED_MODULE_5__auth__["b" /* Register */], onLogin: this.onLogin, loggedIn: this.state.isAuthed })
+                        )
                     )
                 )
             );
@@ -57017,7 +57019,7 @@ module.exports = camelize;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(81);
 /* unused harmony reexport HashRouter */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(34);
-/* unused harmony reexport Link */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(83);
 /* unused harmony reexport MemoryRouter */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(86);
@@ -57027,7 +57029,7 @@ module.exports = camelize;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(91);
 /* unused harmony reexport Redirect */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(35);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(17);
 /* unused harmony reexport Router */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(97);
@@ -60658,8 +60660,9 @@ var withRouter = function withRouter(Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_axios__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -60667,6 +60670,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -60683,7 +60687,7 @@ var TopNav = function (_Component) {
     _createClass(TopNav, [{
         key: 'onLogoutClicked',
         value: function onLogoutClicked() {
-            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/logout', { _token: csrf_token });
+            __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/logout', null, { headers: { 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content } });
         }
     }, {
         key: 'render',
@@ -60692,8 +60696,8 @@ var TopNav = function (_Component) {
                 'nav',
                 { id: 'navBar', className: 'navbar navbar-expand-lg navbar-dark' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'a',
-                    { className: 'navbar-brand', href: '/' },
+                    __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+                    { className: 'navbar-brand', to: '/' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: '/images/university-logo.svg', width: '30', height: '30', className: 'd-inline-block align-top', alt: '' }),
                     'University of Richmond Coding Bootcamp Alumni'
                 ),
@@ -60707,22 +60711,13 @@ var TopNav = function (_Component) {
                     { className: 'collapse navbar-collapse', id: 'navbarNav' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'ul',
-                        { className: 'navbar-nav' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'li',
-                            { className: 'nav-item' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'a',
-                                { className: 'nav-link', href: '/' },
-                                'Home'
-                            )
-                        ),
+                        { className: 'navbar-nav ml-auto' },
                         !this.props.loggedIn ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'li',
                             { className: 'nav-item' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'a',
-                                { className: 'nav-link', href: '/login' },
+                                __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+                                { className: 'nav-link', to: '/login' },
                                 'Login'
                             )
                         ) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -60814,15 +60809,13 @@ var Login = function (_Component) {
             event.preventDefault();
 
             __WEBPACK_IMPORTED_MODULE_2_axios___default.a.post('/login', {
-                _token: csrf_token,
                 email: this.state.email,
                 password: this.state.password
-            }).then(function (res) {
+            }, { headers: { 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content } }).then(function (res) {
                 _this2.setState({ loggedIn: true });
-                console.log(_this2.props);
                 _this2.props.onLogin();
             }).catch(function (err) {
-                return console.log(err);
+                return console.log(err.response.data);
             });
         }
     }, {
@@ -60950,14 +60943,11 @@ var Register = function (_Component) {
             event.preventDefault();
 
             __WEBPACK_IMPORTED_MODULE_1_axios___default.a.post('/register', {
-                _token: csrf_token,
                 name: this.state.name,
                 email: this.state.email,
                 password: this.state.password,
                 'password_confirmation': this.state.password2
-            }).then(function (res) {
-                console.log(res.data);
-            }).catch(function (err) {
+            }, { headers: { 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content } }).catch(function (err) {
                 return console.log(err.response.data);
             });
         }
