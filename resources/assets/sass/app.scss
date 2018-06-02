@@ -8,7 +8,16 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+#navBar {
+    background-color: $ur-blue;
+    border-bottom: 5px solid $ur-red;
+
+    a.navbar-brand > img {
+        margin-right: 5px;
+    }
+
+    a {
+        color: white;
+    }
 }

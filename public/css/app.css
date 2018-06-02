@@ -10411,9 +10411,16 @@ a.text-dark:focus {
   }
 }
 
-.navbar-laravel {
-  background-color: #fff;
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+#navBar {
+  background-color: #000066;
+  border-bottom: 5px solid #990000;
+}
+
+#navBar a.navbar-brand > img {
+  margin-right: 5px;
+}
+
+#navBar a {
+  color: white;
 }
 
