@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import TopNav from './TopNav';
-import Login from './Login';
+import {Login, Register} from './auth';
 import Home from './Home';
 
 export default class Main extends Component {
@@ -14,6 +14,7 @@ export default class Main extends Component {
                     <div className="container-fluid">
                         <Route exact path="/" component={Home} />
                         <Route exact path="/login" component={Login} />
+                        <Route exact path="/register" component={Register} />
                     </div>
                 </Router>
             </div>
