@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import TopNav from './TopNav';
+import Login from './Login';
+import Home from './Home';
 
 export default class Main extends Component {
     render() {
         return (
             <div>
                 <TopNav />
-                <div className="container-fluid">
-                    <div className="row justify-content-center">
-                        <div className="col-md-8">
-                            <div className="card">
-                                <div className="card-header">Example Component</div>
-
-                                <div className="card-body">
-                                    I'm an example component!
-                                </div>
-                            </div>
-                        </div>
+                <Router>
+                    <div className="container-fluid">
+                        <Route exact path="/" component={Home} />
+                        <Route exact path="/login" component={Login} />
                     </div>
-                </div>
+                </Router>
             </div>
         );
     }

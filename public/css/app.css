@@ -10414,6 +10414,7 @@ a.text-dark:focus {
 #navBar {
   background-color: #000066;
   border-bottom: 5px solid #990000;
+  margin-bottom: 15px;
 }
 
 #navBar a.navbar-brand > img {
