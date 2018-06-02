@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import axios from 'axios'
 
 export default class TopNav extends Component {
+    onLogoutClicked() {
+        axios.post('/logout', {_token: csrf_token});
+    }
+
     render() {
         return (
             <nav id="navBar" className="navbar navbar-expand-lg navbar-dark">
@@ -14,15 +18,18 @@ export default class TopNav extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item active">
+                        <li className="nav-item">
                             <a className="nav-link" href="/">Home</a>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/login">Login</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/register">Register</a>
-                        </li>
+                        {!this.props.loggedIn ?
+                            (<li className="nav-item">
+                                <a className="nav-link" href="/login">Login</a>
+                            </li>)
+                            :
+                            (<li className="nav-item">
+                                <a onClick={this.onLogoutClicked} href="" className="nav-link">Logout</a>
+                            </li>)
+                        }
                     </ul>
                 </div>
             </nav>

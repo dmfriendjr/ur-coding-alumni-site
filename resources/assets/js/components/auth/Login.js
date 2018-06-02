@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router'
+
 import axios from 'axios';
 
 export default class Login extends Component {
@@ -7,24 +9,41 @@ export default class Login extends Component {
         super(props);
 
         this.state = {
-            username: '',
+            email: '',
             password: '',
-            passwordConfirm: ''
+            loggedIn: props.loggedIn
         }
+
+        this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleInput(event) {
-        console.log(event.target.value);
+        this.setState({[event.target.name]: event.target.value});
     }
 
-    onFormSubmit() {
+    handleSubmit(event) {
+        event.preventDefault();
 
+        axios.post('/login', {
+            _token: csrf_token,
+            email: this.state.email,
+            password: this.state.password,
+        })
+            .then( (res) => {
+                this.setState({loggedIn: true});
+                console.log(this.props);
+                this.props.onLogin();
+            })
+            .catch( (err) => console.log(err));
     }
 
     render() {
         return (
             <div className="row justify-content-center">
+                { this.state.loggedIn ? <Redirect to="/" /> : ''}
                 <div className="col-md-8">
+
                     <div className="card">
                         <div className="card-header">Login</div>
 
@@ -32,14 +51,15 @@ export default class Login extends Component {
                             <form>
                                 <div className="form-group">
                                     <label htmlFor="exampleInputEmail1">Email address</label>
-                                    <input onChange={this.handleInput} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                                    <input onChange={this.handleInput} name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="exampleInputPassword1">Password</label>
-                                    <input onChange={this.handleInput} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                    <input onChange={this.handleInput} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                                 </div>
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                <button onClick={this.handleSubmit} type="submit" className="btn btn-primary">Submit</button>
                             </form>
+                            <p>Not Registered? <a href="/register">Create an account!</a></p>
                         </div>
                     </div>
                 </div>

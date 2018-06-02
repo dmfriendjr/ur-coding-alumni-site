@@ -13,4 +13,9 @@
 
 Auth::routes();
 
+Route::get('/user/auth', function() {
+    return Auth::check() ? 'true' : 'false';
+})->name('authCheck');
+
 Route::get('/', 'HomeController@index')->name('home');
+

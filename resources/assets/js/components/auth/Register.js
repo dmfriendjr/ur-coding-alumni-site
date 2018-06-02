@@ -30,7 +30,11 @@ export default class Register extends Component {
             email: this.state.email,
             password: this.state.password,
             'password_confirmation': this.state.password2
-        }).then( (res) => console.log(res.data)).catch( (err) => console.log(err.response.data));
+        })
+            .then( (res) => {
+                console.log(res.data)
+            })
+            .catch( (err) => console.log(err.response.data));
     }
 
     render() {
