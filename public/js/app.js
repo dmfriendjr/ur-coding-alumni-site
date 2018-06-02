@@ -37757,6 +37757,7 @@ var Main = function (_Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
+            console.log('Component mounting', this.state);
             if (!this.state.isAuthed) {
                 __WEBPACK_IMPORTED_MODULE_2_axios___default.a.get('/user/auth').then(function (res) {
                     _this2.setState({ isAuthed: res.data });

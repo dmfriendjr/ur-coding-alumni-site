@@ -19,6 +19,7 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
+        console.log('Component mounting', this.state);
         if (!this.state.isAuthed) {
             axios.get('/user/auth').then( (res) => { this.setState({isAuthed: res.data}) } );
         }
