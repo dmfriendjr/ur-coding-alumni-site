@@ -4,6 +4,7 @@ import Axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import TopNav from './TopNav';
 import {Login, Register} from './auth';
+import AdminHome from './admin/AdminHome.js';
 import Home from './Home';
 
 
@@ -41,6 +42,7 @@ export default class Main extends Component {
                             <Route exact path="/" component={Home} />
                             <Route exact path="/login" render={()=><Login onLogin={this.onLogin} loggedIn={this.state.isAuthed}/>} />
                             <Route exact path="/register" render={()=><Register onLogin={this.onLogin} loggedIn={this.state.isAuthed}/>} />
+                            <Route exact path="/admin" component={AdminHome} />
                         </div>
                     </div>
                 </Router>
