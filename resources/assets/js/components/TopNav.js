@@ -19,6 +19,13 @@ export default class TopNav extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
+                        {this.props.loggedIn && this.props.user.isAdmin ?
+                            (<li className="nav-item">
+                                <Link className="nav-link" to="/admin">Admin</Link>
+                            </li>)
+                            :
+                            ''
+                        }
                         {!this.props.loggedIn ?
                             (<li className="nav-item">
                                 <Link className="nav-link" to="/login">Login</Link>
@@ -28,6 +35,7 @@ export default class TopNav extends Component {
                                 <a onClick={this.onLogoutClicked} href="" className="nav-link">Logout</a>
                             </li>)
                         }
+
                     </ul>
                 </div>
             </nav>

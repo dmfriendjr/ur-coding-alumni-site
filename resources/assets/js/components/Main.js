@@ -13,16 +13,25 @@ export default class Main extends Component {
         super(props);
 
         this.state = {
-            isAuthed: false
+            isAuthed: false,
+            user: {}
         }
 
         this.onLogin = this.onLogin.bind(this);
     }
 
     componentDidMount() {
+        this.getAuthState();
+    }
+
+    getAuthState() {
         if (!this.state.isAuthed) {
-            axios.get('/user/auth').then( (res) => { this.setState({isAuthed: res.data}) } );
+            axios.get('/user/auth').then( (res) => { this.setState({isAuthed: res.data ? true : false, user: res.data}) } );
         }
+    }
+
+    componentWillUpdate() {
+        this.getAuthState();
     }
 
     onLogin() {
@@ -37,11 +46,11 @@ export default class Main extends Component {
                 <Router>
                     <div className="app-container">
 
-                        <TopNav loggedIn={this.state.isAuthed} />
+                        <TopNav loggedIn={this.state.isAuthed} user={this.state.user}/>
                         <div className="container-fluid">
                             <Route exact path="/" component={Home} />
                             <Route exact path="/login" render={()=><Login onLogin={this.onLogin} loggedIn={this.state.isAuthed}/>} />
-                            <Route exact path="/register" render={()=><Register onLogin={this.onLogin} loggedIn={this.state.isAuthed}/>} />
+                            <Route exact path="/register" render={()=><Register onLogin={this.onLogin} user={this.state.user} loggedIn={this.state.isAuthed}/>} />
                             <Route exact path="/admin" component={AdminHome} />
                         </div>
                     </div>

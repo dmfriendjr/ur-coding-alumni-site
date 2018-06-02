@@ -10425,3 +10425,17 @@ a.text-dark:focus {
   color: white;
 }
 
+.next-event-card {
+  padding: 0.5rem;
+}
+
+.next-event-card p {
+  font-size: 12px;
+  margin: 0;
+}
+
+.next-event-card p.label {
+  font-weight: bold;
+  margin-top: 3px;
+}
+

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::get('/user/auth', function() {
-    return Auth::check() ? 'true' : 'false';
+    return Auth::check() ? Auth::user() : 'false';
 })->name('authCheck');
 
 Route::get('/', 'HomeController@index')->name('home');

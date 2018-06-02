@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
+import NextEventCard from './Home/NextEventCard';
 
 export default class Home extends Component {
     render() {
         return (
-            <div className="row justify-content-center">
+            <div className="row">
                 <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Example Component</div>
-
-                        <div className="card-body">
-                            I'm an example component!
-                        </div>
-                    </div>
+                    <h1>Welcome</h1>
+                </div>
+                <div className="col-md-4">
+                    <NextEventCard/>
                 </div>
             </div>
         );

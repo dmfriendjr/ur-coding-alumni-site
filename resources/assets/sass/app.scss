@@ -22,3 +22,18 @@
         color: white;
     }
 }
+
+.next-event-card {
+    padding: 0.5rem;
+
+    p {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    p.label {
+        font-weight: bold;
+        margin-top: 3px;
+    }
+
+}
