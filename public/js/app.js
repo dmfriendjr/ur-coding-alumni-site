@@ -38451,8 +38451,12 @@ var Main = function (_Component) {
     }, {
         key: 'getAuthState',
         value: function getAuthState() {
+            var _this2 = this;
+
             if (!this.state.isAuthed) {
-                // axios.get('/user/auth').then( (res) => { this.setState({isAuthed: res.data ? true : false, user: res.data}) } );
+                axios.get('/user/auth').then(function (res) {
+                    _this2.setState({ isAuthed: res.data ? true : false, user: res.data });
+                });
             }
         }
     }, {
@@ -38463,7 +38467,7 @@ var Main = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
@@ -38480,10 +38484,10 @@ var Main = function (_Component) {
                             { className: 'container-fluid' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_7__Home__["a" /* default */] }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { exact: true, path: '/login', render: function render() {
-                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__auth__["a" /* Login */], { onLogin: _this2.onLogin, loggedIn: _this2.state.isAuthed });
+                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__auth__["a" /* Login */], { onLogin: _this3.onLogin, loggedIn: _this3.state.isAuthed });
                                 } }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { exact: true, path: '/register', render: function render() {
-                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__auth__["b" /* Register */], { onLogin: _this2.onLogin, loggedIn: _this2.state.isAuthed });
+                                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__auth__["b" /* Register */], { onLogin: _this3.onLogin, loggedIn: _this3.state.isAuthed });
                                 } }),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["c" /* Route */], { exact: true, path: '/admin', component: __WEBPACK_IMPORTED_MODULE_6__admin_AdminHome_js__["a" /* default */] })
                         )
