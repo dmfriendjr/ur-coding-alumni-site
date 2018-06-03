@@ -19,8 +19,8 @@ class CreateEventsTable extends Migration
             $table->text('location');
             $table->time('time');
             $table->text('topic');
-            $table->integer('registered_attendance');
-            $table->integer('actual_attendance');
+            $table->integer('registered_attendance')->default(0);
+            $table->integer('actual_attendance')->default(0);
             $table->timestamps();
         });
     }
