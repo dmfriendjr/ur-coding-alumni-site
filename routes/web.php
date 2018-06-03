@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use App\Http\Middleware\RedirectIfAuthenticated;
+use Illuminate\Support\Facades\Auth;
+
+Auth::routes();
+
+Route::get('/user/auth', function() {
+    return Auth::check() ? Auth::user() : 'false';
+})->name('authCheck');
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin', 'middleware' => [\App\Http\Middleware\RedirectIfNotAdminAuthenticated::class]], function() {
+    Route::get('/', 'HomeController@index');
 });

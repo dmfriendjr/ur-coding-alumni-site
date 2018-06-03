@@ -8,7 +8,36 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+#navBar {
+    background-color: $ur-blue;
+    border-bottom: 5px solid $ur-red;
+    margin-bottom: 15px;
+
+    a.navbar-brand > img {
+        margin-right: 5px;
+    }
+
+    a {
+        color: white;
+    }
+}
+
+.next-event-card {
+    padding: 0.5rem;
+
+    p {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    p.label {
+        font-weight: bold;
+        margin-top: 3px;
+    }
+}
+
+p.form-error {
+    padding: 0.5rem;
+    text-align: center;
 }
