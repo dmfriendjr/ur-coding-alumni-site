@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 
 export default class Home extends Component {
     render() {
@@ -10,7 +10,7 @@ export default class Home extends Component {
                         <div className="card-header">Example Component</div>
 
                         <div className="card-body">
-                            Welcome Admin
+                            <Link to="/admin/event">Create Event</Link>
                         </div>
                     </div>
                 </div>

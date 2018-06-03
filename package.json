@@ -24,6 +24,8 @@
         "react-dom": "^16.2.0"
     },
     "dependencies": {
+        "moment": "^2.22.2",
+        "react-datetime": "^2.14.0",
         "react-router-dom": "^4.2.2"
     }
 }

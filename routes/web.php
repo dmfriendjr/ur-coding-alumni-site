@@ -24,4 +24,13 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => [\App\Http\Middleware\RedirectIfNotAdminAuthenticated::class]], function() {
     Route::get('/', 'HomeController@index');
+    Route::get('/event', 'HomeController@index');
+
+    Route::resource('event', 'EventController')->except([
+        'index', 'create', 'edit'
+    ]);
 });
+
+
+
+
