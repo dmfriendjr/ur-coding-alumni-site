@@ -9,11 +9,11 @@ export default class NextEventCard extends Component {
                     <span>Next Event - 1/1/2018</span>
                 </div>
                 <div className="card-body next-event-card">
-                    <p class="label">Location:</p>
+                    <p className="label">Location:</p>
                     <p>University of Richmond</p>
                     <p>Robins School of Business - Room 999</p>
                     <p>5:00 PM</p>
-                    <p class="label">Topic:</p>
+                    <p className="label">Topic:</p>
                     <p>Guest Speaker - Bill Gates</p>
                     <Link to='/events/billgates/'>View Details</Link>
                 </div>

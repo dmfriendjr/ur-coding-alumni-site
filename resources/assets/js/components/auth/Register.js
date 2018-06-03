@@ -12,6 +12,7 @@ export default class Register extends Component {
             email: '',
             password: '',
             password2: '',
+            errors: {}
         }
 
         this.handleInput = this.handleInput.bind(this);
@@ -19,6 +20,7 @@ export default class Register extends Component {
     }
 
     handleInput(event) {
+        console.log('Updating');
         this.setState({[event.target.name]: event.target.value});
     }
 
@@ -32,7 +34,7 @@ export default class Register extends Component {
             'password_confirmation': this.state.password2
         }, { headers: { 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content } })
             .then( (res) => this.props.onLogin())
-            .catch( (err) => console.log(err));
+            .catch( (err) => {if (err.response) this.setState({errors: err.response.data.errors})});
     }
 
     render() {
@@ -44,6 +46,7 @@ export default class Register extends Component {
                             <div className="card-header">Example Component</div>
                             <div className="card-body">
                                 <form>
+                                    { Object.values(this.state.errors).map( (error, i) => {return <p className="bg-warning text-white rounded form-error" key={i}>{error[0]}</p>})}
                                     <div className="form-group">
                                         <label htmlFor="nameInput">Name</label>
                                         <input onChange={this.handleInput} value={this.state.name} type="text" className="form-control" name="name" id="nameInput" placeholder="Enter Name" />

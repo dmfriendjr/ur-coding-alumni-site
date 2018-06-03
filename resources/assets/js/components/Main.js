@@ -26,19 +26,13 @@ export default class Main extends Component {
 
     getAuthState() {
         if (!this.state.isAuthed) {
-            axios.get('/user/auth').then( (res) => { this.setState({isAuthed: res.data ? true : false, user: res.data}) } );
+            // axios.get('/user/auth').then( (res) => { this.setState({isAuthed: res.data ? true : false, user: res.data}) } );
         }
-    }
-
-    componentWillUpdate() {
-        this.getAuthState();
     }
 
     onLogin() {
         this.setState({isAuthed: true});
     }
-
-
 
     render() {
         return (
@@ -50,7 +44,7 @@ export default class Main extends Component {
                         <div className="container-fluid">
                             <Route exact path="/" component={Home} />
                             <Route exact path="/login" render={()=><Login onLogin={this.onLogin} loggedIn={this.state.isAuthed}/>} />
-                            <Route exact path="/register" render={()=><Register onLogin={this.onLogin} user={this.state.user} loggedIn={this.state.isAuthed}/>} />
+                            <Route exact path="/register" render={()=><Register onLogin={this.onLogin} loggedIn={this.state.isAuthed}/>} />
                             <Route exact path="/admin" component={AdminHome} />
                         </div>
                     </div>
