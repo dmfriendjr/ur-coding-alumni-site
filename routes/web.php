@@ -20,17 +20,20 @@ Route::get('/user/auth', function() {
     return Auth::check() ? Auth::user() : 'false';
 })->name('authCheck');
 
-Route::get('/', 'HomeController@index')->name('home');
-
 Route::group(['prefix' => 'admin', 'middleware' => [\App\Http\Middleware\RedirectIfNotAdminAuthenticated::class]], function() {
-    Route::get('/', 'HomeController@index');
-    Route::get('/event', 'HomeController@index');
-
     Route::resource('event', 'EventController')->except([
         'index', 'create', 'edit'
     ]);
+
+    Route::get('/{path?}', function(){
+        return view('home');
+    })->where('path', '.*');
 });
 
+
+Route::get('/{path?}', function(){
+    return view('home');
+})->where('path', '.*');
 
 
 
