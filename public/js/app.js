@@ -80692,54 +80692,54 @@ var Carousel = function (_Component) {
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
-                { 'class': 'container', id: 'homeCarousel' },
+                { className: 'container', id: 'homeCarousel' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'div',
-                    { id: 'carouselExampleIndicators', 'class': 'carousel slide', 'data-ride': 'carousel' },
+                    { id: 'carouselExampleIndicators', className: 'carousel slide', 'data-ride': 'carousel' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'ol',
-                        { 'class': 'carousel-indicators' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#carouselExampleIndicators', 'data-slide-to': '0', 'class': 'active' }),
+                        { className: 'carousel-indicators' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#carouselExampleIndicators', 'data-slide-to': '0', className: 'active' }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#carouselExampleIndicators', 'data-slide-to': '1' }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#carouselExampleIndicators', 'data-slide-to': '2' }),
                         '`'
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'div',
-                        { 'class': 'carousel-inner' },
+                        { className: 'carousel-inner' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { 'class': 'carousel-item active' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { 'class': 'responsive', src: '/images/pp1.png', width: '100%', height: '400', alt: 'First slide' })
+                            { className: 'carousel-item active' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'responsive', src: '/images/pp1.png', width: '100%', height: '400', alt: 'First slide' })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { 'class': 'carousel-item' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { 'class': 'responsive', src: '/images/pp2.jpg', width: '800', height: '400', alt: 'Second slide' })
+                            { className: 'carousel-item' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'responsive', src: '/images/pp2.jpg', width: '800', height: '400', alt: 'Second slide' })
                         ),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'div',
-                            { 'class': 'carousel-item' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { 'class': 'responsive', src: '/images/pp3.jpg', width: '800', height: '400', alt: 'Third slide' })
+                            { className: 'carousel-item' },
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'responsive', src: '/images/pp3.jpg', width: '800', height: '400', alt: 'Third slide' })
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'a',
-                        { 'class': 'carousel-control-prev', href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'prev' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { 'class': 'carousel-control-prev-icon', 'aria-hidden': 'false' }),
+                        { className: 'carousel-control-prev', href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'prev' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'carousel-control-prev-icon', 'aria-hidden': 'false' }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
-                            { 'class': 'sr-only' },
+                            { className: 'sr-only' },
                             'Previous'
                         )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'a',
-                        { 'class': 'carousel-control-next', href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'next' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { 'class': 'carousel-control-next-icon', 'aria-hidden': 'false' }),
+                        { className: 'carousel-control-next', href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'next' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'carousel-control-next-icon', 'aria-hidden': 'false' }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             'span',
-                            { 'class': 'sr-only' },
+                            { className: 'sr-only' },
                             'Next'
                         )
                     )
