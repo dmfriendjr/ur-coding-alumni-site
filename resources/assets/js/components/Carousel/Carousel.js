@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Carousel.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 
 export default class Carousel extends Component {

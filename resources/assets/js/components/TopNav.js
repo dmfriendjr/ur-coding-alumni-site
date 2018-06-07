@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
+import LoggedInNavbar from './LoggedInNavbar';
 
 export default class TopNav extends Component {
-    onLogoutClicked() {
-        axios.post('/logout', null, { headers: { 'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content } })
-    }
-
+   
     render() {
         return (
             <nav id="navBar" className="navbar navbar-expand-lg navbar-dark">
@@ -31,11 +29,8 @@ export default class TopNav extends Component {
                                 <Link className="nav-link" to="/login">Login</Link>
                             </li>)
                             :
-                            (<li className="nav-item">
-                                <a onClick={this.onLogoutClicked} href="" className="nav-link">Logout</a>
-                            </li>)
+                            <LoggedInNavbar />     
                         }
-
                     </ul>
                 </div>
             </nav>
