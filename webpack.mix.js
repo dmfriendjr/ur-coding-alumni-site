@@ -12,6 +12,5 @@ let mix = require('laravel-mix');
  */
 
 mix.react('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css')
-    .browserSync('ur-coding-alumni-site.test');
-
+   .sass('resources/assets/sass/app.scss', 'public/css')
+   .browserSync('ur-coding-alumni-site.test');
