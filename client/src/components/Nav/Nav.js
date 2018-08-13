@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
-import logo from "../../university-logo.svg";
 
-class Home extends React.Component {
+const Nav = () => (
+class NavbarFeatures extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,42 +30,47 @@ class Home extends React.Component {
     render() {
         return (
             <Router>
-                <Navbar color="#1a237e indigo darken-4" dark expand="md" scrolling>
-                    <NavbarBrand href="#">
-                        <img src={logo} height="100" alt="logo"/>
+                <Navbar color="indigo" dark expand="md" scrolling>
+                    <NavbarBrand href="/">
+                        <strong>Navbar</strong>
                     </NavbarBrand>
                     { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
                     <Collapse isOpen = { this.state.collapse } navbar>
-                        <NavbarNav right>
+                        <NavbarNav left>
                           <NavItem active>
-                              <NavLink to="#">Login</NavLink>
+                              <NavLink to="#">Home</NavLink>
                           </NavItem>
                           <NavItem>
-                              <NavLink to="#">News</NavLink>
+                              <NavLink to="#">Features</NavLink>
+                          </NavItem>
+                          <NavItem>
+                              <NavLink to="#">Pricing</NavLink>
                           </NavItem>
                           <NavItem>
                               <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                              <DropdownToggle nav caret>Events</DropdownToggle>
+                              <DropdownToggle nav caret>Dropdown</DropdownToggle>
                               <DropdownMenu>
-                                  <DropdownItem href="#">Interview Prep</DropdownItem>
-                                  <DropdownItem href="#">Networking</DropdownItem>
-                                  <DropdownItem href="#">Fun</DropdownItem>
+                                  <DropdownItem href="#">Action</DropdownItem>
+                                  <DropdownItem href="#">Another Action</DropdownItem>
+                                  <DropdownItem href="#">Something else here</DropdownItem>
+                                  <DropdownItem href="#">Something else here</DropdownItem>
                               </DropdownMenu>
                               </Dropdown>
                           </NavItem>
                         </NavbarNav>
-                        {/* <NavbarNav right>
+                        <NavbarNav right>
                           <NavItem>
                             <form className="form-inline md-form mt-0">
                               <input className="form-control mr-sm-2 mb-0 text-white" type="text" placeholder="Search" aria-label="Search"/>
                             </form>
                           </NavItem>
-                        </NavbarNav> */}
+                        </NavbarNav>
                     </Collapse>
                 </Navbar>
             </Router>
         );
     }
 }
+);
 
-export default Home;
+export default Nav;
