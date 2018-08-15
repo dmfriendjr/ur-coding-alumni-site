@@ -4,9 +4,7 @@
 
 ## University of Richmond Coding Bootcamp Alumni Association
 
-### Institutional Identity Guidelines
-
-Accessible [here](https://communications.richmond.edu/toolkit/visual/index.html)
+#### a React.js project maintained by alumni of the Richmond coding bootcamp community
 
 
 
