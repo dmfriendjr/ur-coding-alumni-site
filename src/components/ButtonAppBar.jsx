@@ -7,10 +7,13 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Logo from '../urLogo.svg';
+import './button.css';
 
 const styles = {
     root: {
         flexGrow: 1,
+
     },
     flex: {
         flexGrow: 1,
@@ -19,6 +22,11 @@ const styles = {
         marginLeft: -12,
         marginRight: 20,
     },
+    header: {
+        backgroundColor: '#000066',
+    }
+
+
 };
 
 function ButtonAppBar(props) {
@@ -27,13 +35,14 @@ function ButtonAppBar(props) {
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
+                    <img src={Logo} height="100" alt="logo"/>
+                    <Button color="inherit">Login</Button>
+                    <Typography variant="title" color="inherit" className={classes.flex}>
+                        {/*holds space in middle to offset hamburger*/}
+                    </Typography>
                     <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="title" color="inherit" className={classes.flex}>
-                        News
-                    </Typography>
-                    <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
         </div>
