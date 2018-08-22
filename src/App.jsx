@@ -6,6 +6,9 @@ import LoginForm from './components/Login/LoginForm'
 import SignupForm from './components/SignupForm'
 import Header from './components/Header'
 import Home from './components/Home'
+import ButtonAppBar from './components/ButtonAppBar'
+
+
 
 const DisplayLinks = props => {
     if (props.loggedIn) {
@@ -27,25 +30,26 @@ const DisplayLinks = props => {
         )
     } else {
         return (
-            <nav className="navbar">
-                <ul className="nav">
-                    <li className="nav-item">
-                        <Link to="/" className="nav-link">
-                            Home
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/login" className="nav-link">
-                            login
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to="/signup" className="nav-link">
-                            sign up
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
+        <ButtonAppBar />
+            // <nav className="navbar">
+            //     <ul className="nav">
+            //         <li className="nav-item">
+            //             <Link to="/" className="nav-link">
+            //                 Home
+            //             </Link>
+            //         </li>
+            //         <li className="nav-item">
+            //             <Link to="/login" className="nav-link">
+            //                 login
+            //             </Link>
+            //         </li>
+            //         <li className="nav-item">
+            //             <Link to="/signup" className="nav-link">
+            //                 sign up
+            //             </Link>
+            //         </li>
+            //     </ul>
+            // </nav>
         )
     }
 }
