@@ -1,14 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import Logo from '../urLogo.svg';
 import './button.css';
+import SimpleMenu from './SimpleMenu';
+
 
 const styles = {
     root: {
@@ -18,12 +16,10 @@ const styles = {
     flex: {
         flexGrow: 1,
     },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20,
-    },
-    header: {
+    color: {
         backgroundColor: '#000066',
+        paddingTop: 15,
+        paddingBottom: 15,
     }
 
 
@@ -33,24 +29,19 @@ function ButtonAppBar(props) {
     const { classes } = props;
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="static" className={classes.color}>
                 <Toolbar>
                     <img src={Logo} height="100" alt="logo"/>
-                    <Button color="inherit">Login</Button>
                     <Typography variant="title" color="inherit" className={classes.flex}>
                         {/*holds space in middle to offset hamburger*/}
                     </Typography>
-                    <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                        <MenuIcon />
-                    </IconButton>
+                    <SimpleMenu/>
                 </Toolbar>
             </AppBar>
         </div>
     );
 }
 
-ButtonAppBar.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
+
 
 export default withStyles(styles)(ButtonAppBar);
