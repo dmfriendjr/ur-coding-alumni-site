@@ -6,6 +6,8 @@
 
 #### a React.js project maintained by alumni of the Richmond coding bootcamp community
 
+#### Login with Google Credentials or Your on UN/PW
+
 
 
 
