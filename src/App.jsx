@@ -8,6 +8,7 @@ import Header from './components/Header'
 import Home from './components/Home'
 import ButtonAppBar from './components/ButtonAppBar'
 import './components/button.css'
+import CarouselPage from './components/Carousel'
 
 
 
@@ -112,6 +113,7 @@ class App extends Component {
                 />
                 <Route exact path="/signup" component={SignupForm} />
                 {/* <LoginForm _login={this._login} /> */}
+                < CarouselPage />
             </div>
         )
     }
