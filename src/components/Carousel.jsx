@@ -1,6 +1,6 @@
 import React, { Component, Image } from 'react';
 import { Carousel, CarouselInner, CarouselItem, View, Container } from 'mdbreact';
-import { ceremony } from './images/ceremony.jpg';
+//import { ceremony } from './images/ceremony.jpg';
 
 class CarouselPage extends Component {
     render() {
@@ -16,22 +16,22 @@ class CarouselPage extends Component {
                     <CarouselInner>
                         <CarouselItem itemId="1">
                             <View>
-                                <img className="d-block w-100" src= "https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide" />
+                                <img className="d-block w-100" src= {require('./images/group.jpg')} alt="First slide" />
                             </View>
                         </CarouselItem>
                         <CarouselItem itemId="2">
                             <View>
-                                <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(99).jpg" alt="Second slide" />
+                                <img className="d-block w-100" src= {require('./images/congrats.jpg')} alt="Second slide" />
                             </View>
                         </CarouselItem>
                         <CarouselItem itemId="3">
                             <View>
-                                <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg" alt="Third slide" />
+                                <img className="d-block w-100" src= {require('./images/ceremony.jpg')} alt="Third slide" />
                             </View>
                         </CarouselItem>
                         <CarouselItem itemId="4">
                             <View>
-                                <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20%28143%29.jpg" alt="Mattonit's item" />
+                                <img className="d-block w-100" src= {require('./images/ceremony.jpg')} alt="Mattonit's item" />
                             </View>
                         </CarouselItem>
                     </CarouselInner>
