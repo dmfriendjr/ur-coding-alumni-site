@@ -9,6 +9,7 @@ import Home from './components/Home'
 import ButtonAppBar from './components/ButtonAppBar'
 import './components/button.css'
 import CarouselPage from "./components/Carousel";
+import CardPage from "./components/Cards";
 
 
 
@@ -114,7 +115,10 @@ class App extends Component {
                 <Route exact path="/signup" component={SignupForm} />
                 {/* <LoginForm _login={this._login} /> */}
                 < CarouselPage />
-                <h1>Upcoming Events</h1>
+                {"\n"} {"\n"}           
+                <h1> {"\n"} Upcoming Events </h1>
+                < CardPage />
+
             </div>
 
         )
